@@ -4,10 +4,16 @@ import {BACKEND, HEADERS} from '../utils/constants';
 
 export const logout = () =>
     dispatch => {
-        Actions.auth();
+
     };
 
-export const login = () =>
+export const login = (login, password) =>
     dispatch => {
-        Actions.auth();
+
     };
+
+export const signup = (login, password) =>
+    async dispatch => {
+
+    };
+

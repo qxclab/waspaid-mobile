@@ -12,28 +12,11 @@ import {
     Text,
     TextInput,
     Title,
-    View, Subtitle, Caption
+    View, Subtitle
 } from "@shoutem/ui";
 import {Actions} from "react-native-router-flux";
 
-const pieData = [
-    {
-        value: 5000,
-        svg: {
-            fill: '#ef0000'
-        },
-        key: 1
-    },
-    {
-        value: 10000,
-        svg: {
-            fill: '#000000'
-        },
-        key: 2
-    }
-]
-
-export default class DashboardScreen extends Component {
+export default class TransactionScreen extends Component {
 
     render() {
         return (
@@ -45,16 +28,45 @@ export default class DashboardScreen extends Component {
                 />
                 <ScrollView key={'Dashboard'}>
                     <Divider style={{paddingTop: 85}}/>
-                    <Divider styleName="section-header">
-                        <Caption>Бюджет/Расходы</Caption>
-                    </Divider>
-                    <PieChart
-                        style={ { height: 200 } }
-                        data={ pieData }
-                    />
-                    <Divider styleName="section-header">
-                        <Caption>Предстоящие покупки</Caption>
-                    </Divider>
+                    <Row styleName="small">
+                        {/*<Icon name="share" />*/}
+                        <View styleName="vertical">
+                            <Subtitle>Вы должны вернуть долг Александру</Subtitle>
+                            <Text
+                                numberOfLines={1}
+                                style={{color: 'red'}}
+                            >
+                                - 5000 руб
+                            </Text>
+                        </View>
+                    </Row>
+                    {/*<Divider/>*/}
+                    <Row styleName="small">
+                        <View styleName="vertical">
+                            <Subtitle>Вам должен вернуть долг Александр [Без опозданий] </Subtitle>
+                            <Text
+                                numberOfLines={1}
+                                style={{color: 'green'}}
+                            >
+                                + 5000 руб
+                            </Text>
+                        </View>
+                        {/*<Icon styleName="disclosure" name="right-arrow" />*/}
+                    </Row>
+                    <Row styleName="small">
+                        <View styleName="vertical">
+                            <Subtitle>Вам должен вернуть долг Александр [С опозданием] </Subtitle>
+                            <Text
+                                numberOfLines={1}
+                                style={{color: 'green'}}
+                            >
+                                + 5250 руб (5000 + 250)
+
+                            </Text>
+                        </View>
+                        {/*<Icon styleName="disclosure" name="right-arrow" />*/}
+                    </Row>
+                    <Divider/>
                     <Row styleName="small">
                         {/*<Icon name="share" />*/}
                         <View styleName="vertical">
@@ -67,6 +79,7 @@ export default class DashboardScreen extends Component {
                             </Text>
                         </View>
                     </Row>
+                    {/*<Divider/>*/}
                     <Row styleName="small">
                         {/*<Icon name="share" />*/}
                         <View styleName="vertical">
@@ -76,31 +89,6 @@ export default class DashboardScreen extends Component {
                                 style={{color: 'red'}}
                             >
                                 ~ 150 руб
-                            </Text>
-                        </View>
-                    </Row>
-                    <Divider styleName="section-header">
-                        <Caption>Задолжности</Caption>
-                    </Divider>
-                    <Row styleName="small">
-                        <View styleName="vertical">
-                            <Subtitle>Егор [Осталось 2 дня]</Subtitle>
-                            <Text
-                                numberOfLines={1}
-                                style={{color: 'green'}}
-                            >
-                                +5000 руб
-                            </Text>
-                        </View>
-                    </Row>
-                    <Row styleName="small">
-                        <View styleName="vertical">
-                            <Subtitle>Александр [Прошло 3 дня]</Subtitle>
-                            <Text
-                                numberOfLines={1}
-                                style={{color: 'red'}}
-                            >
-                                - 15000 руб
                             </Text>
                         </View>
                     </Row>

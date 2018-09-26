@@ -8,6 +8,7 @@ import reducer from '../reducers';
 import {Routes} from "./Routes";
 // import OneSignalService from "./OneSignalService";
 // import HockeyAppService from "./HockeyAppService";
+import { Examples } from '@shoutem/ui';
 
 const store = createStore(
     reducer,
