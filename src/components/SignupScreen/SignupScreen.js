@@ -10,55 +10,48 @@ import {
     NavigationBar,
     ScrollView,
     Divider,
-    View, Image, TextInput, Screen
+    View, Image, TextInput, Screen, Spinner
 } from "@shoutem/ui";
 import {Actions} from "react-native-router-flux";
+import SignupForm from "../shared/forms/SignupForm";
+import {signup} from "../../actions/auth";
+import connect from "react-redux/es/connect/connect";
 
-export default class SignupScreen extends Component {
+class SignupScreen extends Component {
     render() {
+        const {signup, loading} = this.props;
         return (
             <Screen>
-                <NavigationBar
-                    centerComponent={
-                        <Title>Регистрация</Title>
-                    }
-                />
+                {/*<NavigationBar*/}
+                    {/*centerComponent={*/}
+                        {/*<Title>Signup</Title>*/}
+                    {/*}*/}
+                {/*/>*/}
                 <ScrollView key={'RegisterScreen'}>
-                    <Divider style={{paddingTop: 85}}/>
-                    <View style={{flex: 1, alignItems:'center'}}>
-                        <Image
-                            styleName="medium-avatar"
-                            source={{ uri: 'https://avatars3.githubusercontent.com/u/43476558?s=200&v=4'}}
-                        />
-                    </View>
                     <Divider/>
-                    <View style={{paddingLeft: '10%', paddingRight: '10%'}}>
-                        <TextInput
-                            placeholder={'Электронный адрес'}
-                        />
-                        <Divider />
-                        <TextInput
-                            placeholder={'Пароль'}
-                            secureTextEntry
-                        />
-                        <Divider />
-                        <TextInput
-                            placeholder={'Повторите пароль'}
-                            secureTextEntry
-                        />
-                        <Divider />
-                        <Button styleName="secondary" onPress={Actions.login}>
-                            <Text>Зарегистрироваться</Text>
-                        </Button>
-                        <Divider />
-                        <Button onPress={Actions.login}>
-                            <Text>Уже есть аккаунт</Text>
-                        </Button>
-                    </View>
+                    { loading ?
+                        <View>
+                            <Spinner style={{size: 'large'}}/>
+                        </View> :
+                        <View>
+                            <SignupForm signup={signup}/>
+                            <View style={{paddingLeft: '10%', paddingRight: '10%'}}>
+                                <Button onPress={Actions.login}>
+                                    <Text>Already exist account?</Text>
+                                </Button>
+                            </View>
+                        </View>}
                 </ScrollView>
             </Screen>
         );
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    signup: (values) => dispatch(signup(values))
+});
+const mapStateToProps = ({utils: {loading}}) =>({
+    loading
+})
+export default connect(mapStateToProps, mapDispatchToProps)(SignupScreen)
 

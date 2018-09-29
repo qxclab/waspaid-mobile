@@ -51,7 +51,7 @@ export default class TransactionScreen extends Component {
                                 + 5000 руб
                             </Text>
                         </View>
-                        {/*<Icon styleName="disclosure" name="right-arrow" />*/}
+                        <Icon styleName="disclosure" name="right-arrow" />
                     </Row>
                     <Row styleName="small">
                         <View styleName="vertical">

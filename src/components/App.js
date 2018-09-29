@@ -6,14 +6,14 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist';
 import reducer from '../reducers';
 import {Routes} from "./Routes";
+import logger from 'redux-logger'
 // import OneSignalService from "./OneSignalService";
 // import HockeyAppService from "./HockeyAppService";
-import { Examples } from '@shoutem/ui';
 
 const store = createStore(
     reducer,
     undefined,
-    compose(applyMiddleware(thunk)),
+    compose(applyMiddleware(thunk,logger)),
 );
 
 const persistor = persistStore(store);

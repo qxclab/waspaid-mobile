@@ -1,4 +1,4 @@
-export const BACKEND = 'http://waspaid-backend.qxlab.cc/'
+export const BACKEND = 'http://waspaid-backend.qxlab.cc';
 // export const HEADERS = {
 //     'Content-Type' : 'application/json',
 //     'Authorization' :

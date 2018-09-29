@@ -1,22 +1,21 @@
 import * as actions from '../actions/types';
 
 const initialState = {
-    auth: {},
-    user: {}
+    loading: true
 };
 
-export default function auth(state = initialState, action) {
+export default function utils(state = initialState, action) {
     switch (action.type) {
-        case actions.AUTH_SAVE_DATA: {
+        case actions.START_LOADER: {
             return {
                 ...state,
-                auth: action.payload,
+                loading: true,
             };
         }
-        case actions.SAVE_USER_DATA: {
+        case actions.FINISHED_LOADER: {
             return {
                 ...state,
-                user: action.payload,
+                loading: false,
             };
         }
         default:

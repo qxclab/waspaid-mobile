@@ -13,15 +13,11 @@ import {
     View, Spinner
 } from "@shoutem/ui";
 import { connect } from "react-redux";
-import LoginForm from "../shared/forms/LoginForm";
 import {checkToken, login} from "../../actions/auth";
 
-class LoginScreen extends Component {
-    componentDidMount(){
-        setTimeout(this.props.checkToken, 100);
-    }
+class AccountsScreen extends Component {
     render() {
-        const {login, loading} = this.props;
+        const {loading} = this.props;
         return (
             <Screen>
                 {/*<NavigationBar*/}
@@ -30,18 +26,13 @@ class LoginScreen extends Component {
                     {/*}*/}
                 {/*/>*/}
                 <ScrollView key={'LoginScreen'}>
-                <Divider/>
+                    <Divider/>
                     { loading ?
                         <View>
                             <Spinner style={{size: 'large'}}/>
                         </View> :
                         <View>
-                            <LoginForm login={login}/>
-                            <View style={{paddingLeft: '10%', paddingRight: '10%'}}>
-                                <Button onPress={Actions.signup}>
-                                    <Text>Don`t have account?</Text>
-                                </Button>
-                            </View>
+                            <Text>Accounts</Text>
                         </View>}
                 </ScrollView>
             </Screen>
@@ -58,4 +49,4 @@ const mapStateToProps = ({utils: {loading}}) =>({
     loading
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(LoginScreen)
+export default connect(mapStateToProps,mapDispatchToProps)(AccountsScreen)

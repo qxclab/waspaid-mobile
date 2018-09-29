@@ -11,7 +11,9 @@ export default function InputForm(props) {
                 onBlur={input.onBlur}
                 onFocus={input.onFocus}
                 value={input.value}
+                secureTextEntry={props.type === 'password'}
             />
+            {meta.error && <Text>{meta.error}</Text>}
         </View>
     );
 }

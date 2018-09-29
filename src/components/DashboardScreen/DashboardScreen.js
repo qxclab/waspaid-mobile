@@ -14,7 +14,6 @@ import {
     Title,
     View, Subtitle, Caption
 } from "@shoutem/ui";
-import {Actions} from "react-native-router-flux";
 
 const pieData = [
     {
@@ -44,7 +43,7 @@ export default class DashboardScreen extends Component {
                     }
                 />
                 <ScrollView key={'Dashboard'}>
-                    <Divider style={{paddingTop: 85}}/>
+                    <Divider/>
                     <Divider styleName="section-header">
                         <Caption>Бюджет/Расходы</Caption>
                     </Divider>

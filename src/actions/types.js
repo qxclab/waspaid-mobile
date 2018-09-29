@@ -1,2 +1,4 @@
 export const AUTH_SAVE_DATA = 'AUTH_SAVE_DATA';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
+export const START_LOADER = 'START_LOADER';
+export const FINISHED_LOADER = 'FINISHED_LOADER';
